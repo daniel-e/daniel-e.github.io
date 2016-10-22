@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,54 +9,78 @@
   <title>MNIST database of handwritten digits for Octave</title>
 
   <meta name="author" content="daniel-e" />
-  
-  
-
-  <link rel="alternate" type="application/rss+xml" title="daniel-e blog - Notes on machine learning, my activities on GitHub and more" href="/feed.xml" />
 
   
+
+  <link rel="alternate" type="application/rss+xml" title="daniel-e blog - Notes on machine learning, security, my activities on GitHub and more" href="/feed.xml" />
+
+  
     
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
     
   
+
   
     
       <link rel="stylesheet" href="/css/bootstrap.min.css" />
     
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
       <link rel="stylesheet" href="/css/main.css" />
     
   
-  
+
   
     
-	  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
     
-	  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
     
   
 
-    
   
-  
-  
-  
-  
-  <link rel="stylesheet" href="/styles/default.css">
-  <script src="/js/highlight.pack.js"></script>
 
-  <!-- Facebook OpenGraph tags -->
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
   <meta property="og:title" content="MNIST database of handwritten digits for Octave" />
-  <meta property="og:type" content="website" />
   
+
+   
+  <meta property="og:description" content="In this post you will see how to convert the MNIST database of handwritten digits via rustml into a format that can be read with Octave. The MNIST database of handwritten digits (see here) is a very popular dataset used by the machine learning research community for testing the performance...">
+  
+
+
+  <meta property="og:type" content="website" />
+
   
   <meta property="og:url" content="http://daniel-e.github.io/2015-07-25-MNIST-handwritten-digits-for-Octave/" />
+  <link rel="canonical" href="http://daniel-e.github.io/2015-07-25-MNIST-handwritten-digits-for-Octave/" />
+  
+
   
   
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@yourname" />
+  <meta name="twitter:creator" content="@yourname" />
+
   
-  <meta property="og:image" content="http://daniel-e.github.io/img/avatar-icon.png" />
+  <meta name="twitter:title" content="MNIST database of handwritten digits for Octave" />
   
+
   
+  <meta name="twitter:description" content="In this post you will see how to convert the MNIST database of handwritten digits via rustml into a format that can be read with Octave. The MNIST database of handwritten digits (see here) is a very popular dataset used by the machine learning research community for testing the performance...">
+  
+
+  
+
 </head>
 
 
@@ -76,44 +100,98 @@
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav navbar-right">
-	    
-        <li>
-		  <a href="/">Home</a>
-		</li>
-		
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="https://github.com/daniel-e/">GitHub</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Projects</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="https://github.com/daniel-e/tetros">Tetros</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="https://github.com/daniel-e/stealthy">Stealthy</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
       </ul>
     </div>
-	
-	
-	<div class="avatar-container">
-	  <div class="avatar-img-border">
-	    <a href="http://daniel-e.github.io ">
-	      <img class="avatar-img" src="/img/avatar-icon.png" />
-		</a>
-	  </div>
-	</div>
-	
-	
-  </div>
-</nav>  
 
-    <div role="main" class="container main-content">
-      <header class="header-post">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <div class="post-heading">
-        <h1>MNIST database of handwritten digits for Octave</h1>
-        
-        <span class="post-meta">Posted on July 25, 2015</span>
-      </div>
-     </div>
+	
+
   </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>MNIST database of handwritten digits for Octave</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on July 25, 2015</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </header>
 
-<article>
+
+
+
+<div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-	  <p>In this post you will see how to convert the MNIST database of handwritten digits via <a href="/rustml/rustml/">rustml</a> into a format that can be read with <a href="https://www.gnu.org/software/octave/">Octave</a>.</p>
+
+      <article role="main" class="blog-post">
+        <p>In this post you will see how to convert the MNIST database of handwritten digits via <a href="/rustml/rustml/">rustml</a> into a format that can be read with <a href="https://www.gnu.org/software/octave/">Octave</a>.</p>
 
 <p>The MNIST database of handwritten digits (see <a href="http://yann.lecun.com/exdb/mnist/">here</a>) is a very popular dataset used by the machine learning research community for testing the performance of classification algorithms. It contains 60,000 labeled training examples of handwritten digits between 0 and 9 (both including) and 10,000 labeled examples for testing. Each digit is represented as a grayscale image each with a width and height of 28 pixels. The value of a pixel is in the interval [0, 255].</p>
 
@@ -128,7 +206,7 @@ wget -q https://raw.githubusercontent.com/daniel-e/rustml/master/dl_datasets.sh
 bash ./dl_datasets.sh
 </code></pre>
 
-<p>The installer script will download the datasets into the directory <code>~/.rustml/</code>.</p>
+<p>The installer script will download the datasets into the directory <code class="highlighter-rouge">~/.rustml/</code>.</p>
 
 <h2 id="converting-the-dataset">Converting the dataset</h2>
 
@@ -153,14 +231,14 @@ export PATH=/opt/rust-VERSION/bin:$PATH
 cargo new --bin convert
 </pre>
 
-<p>Append the following two lines (which specify the required dependencies and where to search for them) to <code>Cargo.toml</code> which is located in the directory created by the command above.</p>
+<p>Append the following two lines (which specify the required dependencies and where to search for them) to <code class="highlighter-rouge">Cargo.toml</code> which is located in the directory created by the command above.</p>
 
 <pre>
 [dependencies]
 rustml = { git = "https://github.com/daniel-e/rustml.git" }
 </pre>
 
-<p>Put the following content into the file <code>main.rs</code> which is located in the directory <code>src</code>:</p>
+<p>Put the following content into the file <code class="highlighter-rouge">main.rs</code> which is located in the directory <code class="highlighter-rouge">src</code>:</p>
 
 <pre><code class="rust">extern crate rustml;
 
@@ -200,9 +278,9 @@ cargo run
 
 <h2 id="result">Result</h2>
 
-<p>The result is written into the file <code>mnist.txt</code> in the current working directory. Because the size of the file is roughly 120MB and Octave can also handle gzip compressed files we compress the text file with the command <code>gzip mnist.txt</code> to reduce its size. The result is a file <code>mnist.txt.gz</code> with a size of roughly 15MB.</p>
+<p>The result is written into the file <code class="highlighter-rouge">mnist.txt</code> in the current working directory. Because the size of the file is roughly 120MB and Octave can also handle gzip compressed files we compress the text file with the command <code class="highlighter-rouge">gzip mnist.txt</code> to reduce its size. The result is a file <code class="highlighter-rouge">mnist.txt.gz</code> with a size of roughly 15MB.</p>
 
-<p>Finally, this file can be loaded via the <code>load</code> function in Octave.</p>
+<p>Finally, this file can be loaded via the <code class="highlighter-rouge">load</code> function in Octave.</p>
 
 <pre><code class="matlab">octave:1&gt; load("mnist.txt.gz");
 octave:2&gt; who
@@ -216,7 +294,7 @@ ans =
    60000     784
 </code></pre>
 
-<p>Each digit can be visualized in Octave very easily. For example, to display the digit at row 5 of the training examples stored in the matrix <code>trainX</code> simply do the following:</p>
+<p>Each digit can be visualized in Octave very easily. For example, to display the digit at row 5 of the training examples stored in the matrix <code class="highlighter-rouge">trainX</code> simply do the following:</p>
 
 <pre><code class="matlab">octave:1&gt; imagesc(reshape(trainX(4, :), 28, 28)');
 </code></pre>
@@ -230,36 +308,72 @@ ans =
 <p>All sources and the MNIST database for Octave is available on <a href="https://github.com/daniel-e/blogdata/tree/master/mnist2octave">GitHub</a>.</p>
 
 
-	</div>
-  </div>
-</article>
+      </article>
 
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    <ul class="pager blog-pager">
       
-      <li class="previous">
-        <a href="/2014-12-31-maximum-gflops-element-wise-matrix-multiplication" data-toggle="tooltip" data-placement="top" title="Maximum GFLOPS for an element-wise matrix multiplication">&larr; Previous Post</a>
-      </li>
+
       
-      
-      <li class="next">
-        <a href="/2015-08-10-k-nearest-neighbours-on-mnist-digits-with-octave" data-toggle="tooltip" data-placement="top" title="k-Nearest Neighbors on MNIST digits with Octave">Next Post &rarr;</a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
+        <!-- Check if any share-links are active -->
 
 
-<div class="row disqus-comments">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=MNIST+database+of+handwritten+digits+for+Octave+http://daniel-e.github.io/2015-07-25-MNIST-handwritten-digits-for-Octave/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://daniel-e.github.io/2015-07-25-MNIST-handwritten-digits-for-Octave/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://daniel-e.github.io/2015-07-25-MNIST-handwritten-digits-for-Octave/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2014-12-31-maximum-gflops-element-wise-matrix-multiplication/" data-toggle="tooltip" data-placement="top" title="Maximum GFLOPS for an element-wise matrix multiplication">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2015-08-10-k-nearest-neighbours-on-mnist-digits-with-octave/" data-toggle="tooltip" data-placement="top" title="k-Nearest Neighbors on MNIST digits with Octave">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
 <div class="comments">
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
 	    var disqus_shortname = 'danieleblog';
-	    // ensure that pages with query string get the same discussion
+	    /* ensure that pages with query string get the same discussion */
             var url_parts = window.location.href.split("?");
             var disqus_url = url_parts[0];	    
 	    (function() {
@@ -272,11 +386,11 @@ ans =
 </div>
 
 
+        </div>
+      
+    </div>
   </div>
 </div>
-
-
-    </div>
 
     <footer>
   <div class="container beautiful-jekyll-footer">
@@ -286,7 +400,7 @@ ans =
           
           
           <li>
-            <a href="https://github.com/daniel-e" title="GitHub">
+            <a href="https://github.com/https://github.com/daniel-e/" title="GitHub">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -295,15 +409,7 @@ ans =
           </li>
           
 		  
-          <li>
-            <a href="https://twitter.com/mldaniele" title="Twitter">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
+      
 		  
           <li>
             <a href="mailto:git.daniele@gmail.com" title="Email me">
@@ -316,13 +422,18 @@ ans =
           
 		  
 		  
-		  		  
+		  
+      
+      
+      
+      
+		  
         </ul>
         <p class="copyright text-muted">
 		  daniel-e
 		  &nbsp;&bull;&nbsp;
-		  2015
-		  
+		  2016
+
 		  
 		  &nbsp;&bull;&nbsp;
 		  <a href="http://daniel-e.github.io">home</a>
@@ -342,17 +453,30 @@ ans =
     
 
 
+
+
+
+
   
-	<script src="/js/jquery-1.11.2.min.js"></script>
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
   
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
 	<script src="/js/bootstrap.min.js"></script>
+    
   
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
 	<script src="/js/main.js"></script>
+    
   
-
-
-
-
 
 
 
@@ -367,7 +491,7 @@ ans =
 	</script>
 	<!-- End Google Analytics -->
 
+
   
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
