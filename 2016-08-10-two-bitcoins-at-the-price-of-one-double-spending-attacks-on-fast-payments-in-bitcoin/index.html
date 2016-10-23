@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>DoubleGuard Detecting Intrusions In Multi-tier Web Applications</title>
+  <title>Two Bitcoins at the Price of One Double-Spending Attacks on Fast Payments in Bitcoin</title>
 
   <meta name="author" content="daniel-e" />
 
@@ -48,19 +48,19 @@
   
 
   
-  <meta property="og:title" content="DoubleGuard Detecting Intrusions In Multi-tier Web Applications" />
+  <meta property="og:title" content="Two Bitcoins at the Price of One Double-Spending Attacks on Fast Payments in Bitcoin" />
   
 
    
-  <meta property="og:description" content="This is a short summary of the paper “DoubleGuard: Detecting Intrusions In Multi-tier Web Applications” by Le, M., Stavrou, A., &amp;amp; Kang, B. B. which appeared in 2012 in IEEE Transactions on dependable and secure computing, 9(4), 512-525. The authors developed an IDS system named DoubleGuard that models the network...">
+  <meta property="og:description" content="This is a short summary of the paper “wo Bitcoins at the Price of One? Double-Spending Attacks on Fast Payments in Bitcoin” by Karame, Ghassan, Elli Androulaki, and Srdjan Capkun which appeared in 2012 in IACR Cryptology ePrint Archive. For digital currencies double-spending occurs if it is possible to spend...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://daniel-e.github.io/2016-10-21-doubleguard-detecting-intrusions-in-multi-tier-web-applications/" />
-  <link rel="canonical" href="http://daniel-e.github.io/2016-10-21-doubleguard-detecting-intrusions-in-multi-tier-web-applications/" />
+  <meta property="og:url" content="http://daniel-e.github.io/2016-08-10-two-bitcoins-at-the-price-of-one-double-spending-attacks-on-fast-payments-in-bitcoin/" />
+  <link rel="canonical" href="http://daniel-e.github.io/2016-08-10-two-bitcoins-at-the-price-of-one-double-spending-attacks-on-fast-payments-in-bitcoin/" />
   
 
   
@@ -72,11 +72,11 @@
   <meta name="twitter:creator" content="@yourname" />
 
   
-  <meta name="twitter:title" content="DoubleGuard Detecting Intrusions In Multi-tier Web Applications" />
+  <meta name="twitter:title" content="Two Bitcoins at the Price of One Double-Spending Attacks on Fast Payments in Bitcoin" />
   
 
   
-  <meta name="twitter:description" content="This is a short summary of the paper “DoubleGuard: Detecting Intrusions In Multi-tier Web Applications” by Le, M., Stavrou, A., &amp;amp; Kang, B. B. which appeared in 2012 in IEEE Transactions on dependable and secure computing, 9(4), 512-525. The authors developed an IDS system named DoubleGuard that models the network...">
+  <meta name="twitter:description" content="This is a short summary of the paper “wo Bitcoins at the Price of One? Double-Spending Attacks on Fast Payments in Bitcoin” by Karame, Ghassan, Elli Androulaki, and Srdjan Capkun which appeared in 2012 in IACR Cryptology ePrint Archive. For digital currencies double-spending occurs if it is possible to spend...">
   
 
   
@@ -170,11 +170,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>DoubleGuard Detecting Intrusions In Multi-tier Web Applications</h1>
+          <h1>Two Bitcoins at the Price of One Double-Spending Attacks on Fast Payments in Bitcoin</h1>
 		  
 		  
 		  
-		  <span class="post-meta">Posted on October 21, 2016</span>
+		  <span class="post-meta">Posted on August 10, 2016</span>
 		  
         </div>
       </div>
@@ -191,13 +191,21 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
       <article role="main" class="blog-post">
-        <p>This is a short summary of the paper “<strong>DoubleGuard: Detecting Intrusions In Multi-tier Web Applications</strong>” by Le, M., Stavrou, A., &amp; Kang, B. B. which appeared in 2012 in <em>IEEE Transactions on dependable and secure computing</em>, 9(4), 512-525.</p>
+        <p>This is a short summary of the paper “<strong>wo Bitcoins at the Price of One? Double-Spending Attacks on Fast Payments in Bitcoin</strong>” by Karame, Ghassan, Elli Androulaki, and Srdjan Capkun which appeared in 2012 in <em>IACR Cryptology ePrint Archive</em>.</p>
 
-<p><img src="../assets/doubleguard-0.png" alt="page 1" />
-<img src="../assets/doubleguard-4.png" alt="page 2" />
-<img src="../assets/doubleguard-9.png" alt="page 3" /></p>
+<p><img src="../assets/two_bitcoins-0.png" alt="page 1" />
+<img src="../assets/two_bitcoins-5.png" alt="page 2" />
+<img src="../assets/two_bitcoins-8.png" alt="page 3" /></p>
 
-<p>The authors developed an IDS system named DoubleGuard that models the network behavior of user sessions across both the front-end web server and the back-end database. Each user session is isolated in a lightweight OpenVZ container to be able to link incoming web requests with the resulting outgoing back-end requests. Furthermore, this approach has the advantage that an attacker who is able to get control of the Apache or Tomcat on which the web application is running cannot get access to sessions of other users. The system is trained from normal behavior and is also able to detect SQL injections if a database response contains unusual patterns. It adds only a small performance overhead to web servers if those servers have only a moderate load of up to 100 requests per second.</p>
+<p>For digital currencies double-spending occurs if it is possible to spend a set of coins in more than one transaction. To avoid double-spending attacks Bitcoin secures all transactions of the past by proof-of-work. If an attacker wants to remove a transaction from the blockchain he has to fork the blockchain at the block which contains the transaction. Starting from this forked block he has to compute as many new blocks until the fork’s chain is at least as long as the public chain to which the honest miners contribute to because honest miners only work on the longest chain. As the computational resources required to mount such an attack are enormous and grow significantly for blocks further back in the past double-spending attacks are extremely unlikely for Bitcoin.</p>
+
+<p>In this paper the authors describe a double-spending attack on fast payments, i.e. payments for which the time between the exchange of currency and the product is short (e.g. in the order of a few seconds). Fast payments are not secured by the blockchain yet has they only exist in the client caches (aka memory pool) where they are waiting to be included in a new block by some miner. A vendor accepting fast payments accepts the risk that a transaction will never be included in the blockchain. In that case the vendor will lose the money received for that product. Hence, fast payments are recommended only for small transactions.</p>
+
+<p>To mount the attack described in this paper the attacker needs to know the vendor’s Bitcoin address and the IP address of the vendor’s Bitcoin client. As the vendor wants to receive money the Bitcoin address is publicly known. The IP address is usually not known as it is not stored in the blockchain. For this case an attacker could try to observe carefully the traffic in the Bitcoin network to associate Bitcoin addresses with IP addresses.</p>
+
+<p>As soon as the attacker is in the possession of the Bitcoin address and the IP address he can start the attack. He first starts several Bitcoin clients which connect to the vendor’s client. The more connections he is able to establish the more likely is the attack to be successful. Then, when the attacker purchases a product the attacker’s clients send the corresponding transaction T only to the vendor’s client. At the same time the attacker’s clients send a faked transaction which is equal to T except that the recipient is modified (e.g. replaced by another address which is under the control of the attacker) to all other peers in the Bitcoin network. Due to the property that honest clients which already have stored transaction T in the memory pool reject the faked transaction and vice versa the vendor’s Bitcoin client only sees transaction T and most of the other peers in the network only see the faked transaction. Thus, it’s likely that the faked transaction will be included in the blockchain rendering T invalid. The authors show that the success probability of this attack is significant.</p>
+
+<p>It seems that the attack is more difficult or even impossible if the Bitcoin client is running behind a NAT as only outgoing connections and no incoming connections are possible.</p>
 
       </article>
 
@@ -213,7 +221,7 @@
 
   <!--- Share on Twitter -->
   
-    <a href="https://twitter.com/intent/tweet?text=DoubleGuard+Detecting+Intrusions+In+Multi-tier+Web+Applications+http://daniel-e.github.io/2016-10-21-doubleguard-detecting-intrusions-in-multi-tier-web-applications/"
+    <a href="https://twitter.com/intent/tweet?text=Two+Bitcoins+at+the+Price+of+One+Double-Spending+Attacks+on+Fast+Payments+in+Bitcoin+http://daniel-e.github.io/2016-08-10-two-bitcoins-at-the-price-of-one-double-spending-attacks-on-fast-payments-in-bitcoin/"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
     </a>
@@ -221,7 +229,7 @@
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://daniel-e.github.io/2016-10-21-doubleguard-detecting-intrusions-in-multi-tier-web-applications/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://daniel-e.github.io/2016-08-10-two-bitcoins-at-the-price-of-one-double-spending-attacks-on-fast-payments-in-bitcoin/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -232,7 +240,7 @@
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://daniel-e.github.io/2016-10-21-doubleguard-detecting-intrusions-in-multi-tier-web-applications/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://daniel-e.github.io/2016-08-10-two-bitcoins-at-the-price-of-one-double-spending-attacks-on-fast-payments-in-bitcoin/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -247,9 +255,13 @@
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="/2016-09-16-majority-is-not-enough-bitcoin-mining-is-vulnerable/" data-toggle="tooltip" data-placement="top" title="Majority is not Enough Bitcoin Mining is Vulnerable">&larr; Previous Post</a>
+          <a href="/2016-01-05-nearest-neighbor-in-tiny-images-dataset/" data-toggle="tooltip" data-placement="top" title="Nearest neighbor search in the Tiny Images dataset">&larr; Previous Post</a>
         </li>
         
+        
+        <li class="next">
+          <a href="/2016-09-16-majority-is-not-enough-bitcoin-mining-is-vulnerable/" data-toggle="tooltip" data-placement="top" title="Majority is not Enough Bitcoin Mining is Vulnerable">Next Post &rarr;</a>
+        </li>
         
       </ul>
 
