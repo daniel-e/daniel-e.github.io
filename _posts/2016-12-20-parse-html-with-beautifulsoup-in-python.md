@@ -3,6 +3,8 @@ layout: post
 title: Parse HTML with BeautifulSoup in Python
 ---
 
+Example
+
 {% highlight python %}
 #!/usr/bin/env python
 
