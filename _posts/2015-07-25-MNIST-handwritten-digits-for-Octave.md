@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MNIST database of handwritten digits for Octave
+tags: [machine learning]
 ---
 
 In this post you will see how to convert the MNIST database of handwritten digits via [rustml](/rustml/rustml/) into a format that can be read with [Octave](https://www.gnu.org/software/octave/).
@@ -9,7 +10,7 @@ The MNIST database of handwritten digits (see [here](http://yann.lecun.com/exdb/
 
 Because the database from the link above is in a format that cannot be directly processed with Octave we will use [rustml](/rustml/rustml) to convert it into a format that can be read with Octave.
 
-## Download the dataset 
+## Download the dataset
 First, we need to download the original dataset. As described [here](https://github.com/daniel-e/rustml#rustml-datasets-package) we execute the following commands on the command line:
 
 <pre><code class="bash"># download the installer script
@@ -118,4 +119,3 @@ This will show the image below:
 ## Sources
 
 All sources and the MNIST database for Octave is available on [GitHub](https://github.com/daniel-e/blogdata/tree/master/mnist2octave).
-

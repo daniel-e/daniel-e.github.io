@@ -1,6 +1,7 @@
 ---
 layout: post
 title: DoubleGuard Detecting Intrusions In Multi-tier Web Applications
+tags: paper
 ---
 
 

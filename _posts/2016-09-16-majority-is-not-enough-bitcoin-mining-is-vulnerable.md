@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Majority is not Enough Bitcoin Mining is Vulnerable
+tags: paper
 ---
 
 

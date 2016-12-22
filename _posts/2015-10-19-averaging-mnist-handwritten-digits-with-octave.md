@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Averaging MNIST handwritten digits with Octave 
+title: Averaging MNIST handwritten digits with Octave
+tags: [machine learning]
 ---
 
-In this post we will see how the average digit of the MNIST database of handwritten digits looks like. 
+In this post we will see how the average digit of the MNIST database of handwritten digits looks like.
 
 The MNIST database of handwritten digits (see [here](http://yann.lecun.com/exdb/mnist/)) is a very popular dataset used by the machine learning research community for testing the performance of learning algorithms for the task of recognizing handwritten digits.
 

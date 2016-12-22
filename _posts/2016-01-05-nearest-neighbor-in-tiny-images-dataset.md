@@ -1,35 +1,17 @@
 ---
 layout: post
 title: Nearest neighbor search in the Tiny Images dataset
+tags: [machine learning]
 ---
 
-The Tiny Images dataset consists of 79,302,017 images, each being a 32x32 color RGB image.
-The images have been retrieved from the Internet from several image search engines,
-are stored in an uncompressed large binary file (227GB) so that each image can be easily
-accessed via random access and are loosely labeled with one of the 75,062 non-abstract
-nouns in English as listed in the Wordnet lexical database. To download the file or to
-get more details about the dataset you should visit
-[this site](http://horatio.cs.nyu.edu/mit/tiny/data/index.html).
+The Tiny Images dataset consists of 79,302,017 images, each being a 32x32 color RGB image. The images have been retrieved from the Internet from several image search engines, are stored in an uncompressed large binary file (227GB) so that each image can be easily accessed via random access and are loosely labeled with one of the 75,062 non-abstract nouns in English as listed in the Wordnet lexical database. To download the file or to get more details about the dataset you should visit [this site](http://horatio.cs.nyu.edu/mit/tiny/data/index.html).
 
-As shown in the paper "80 million tiny images: a large dataset for non-parametric object and scene recognition" 
-which can be downloaded [here](http://people.csail.mit.edu/billf/www/papers/80millionImages.pdf) this
-dataset can be used for some quite
-interesting tasks like scene detection, object detection and localization and image annotation.
+As shown in the paper "80 million tiny images: a large dataset for non-parametric object and scene recognition" which can be downloaded [here](http://people.csail.mit.edu/billf/www/papers/80millionImages.pdf) this
+dataset can be used for some quite interesting tasks like scene detection, object detection and localization and image annotation.
 
-In this blog post I will show you how to do a simple k-nearest neighbor search in this
-database to search similar images to a given query image. The results are not very impressive but
-the code can be used as a basis for further more sophisticated experiments.
-The scripts and the source code of this post are available via
-[GitHub](https://github.com/daniel-e/tinyimages/tree/master/knn).
+In this blog post I will show you how to do a simple k-nearest neighbor search in this database to search similar images to a given query image. The results are not very impressive but the code can be used as a basis for further more sophisticated experiments. The scripts and the source code of this post are available via [GitHub](https://github.com/daniel-e/tinyimages/tree/master/knn).
 
-First, lets have a look at the dataset. The script `mosaic.py` can be used to retrieve
-images from the Timy Images dataset. The output of the script is an image where the tiny
-images are organized in a grid. The first image is located in the first row and first column,
-the second image is located in the first row and second column and so on (i.e. column-major
-order). For example, the following command produces the image below which
-contains 100 random images from the dataset in 20 columns und 5 rows. The random number
-generator to generate the random numbers is seeded with the value 123 just to get
-reproducible results.
+First, lets have a look at the dataset. The script `mosaic.py` can be used to retrieve images from the Timy Images dataset. The output of the script is an image where the tiny images are organized in a grid. The first image is located in the first row and first column, the second image is located in the first row and second column and so on (i.e. column-major order). For example, the following command produces the image below which contains 100 random images from the dataset in 20 columns und 5 rows. The random number generator to generate the random numbers is seeded with the value 123 just to get reproducible results.
 
 {% highlight bash %}
 mosaic.py --db tiny_images.bin -o output.jpg -c 20 --seed 123
@@ -38,8 +20,7 @@ mosaic.py --db tiny_images.bin -o output.jpg -c 20 --seed 123
 ![mosaic of tiny images dataset](/assets/tiny_images_knn/tinyimages-mosaic.jpg)
 
 If you want to extract images at specific positions you can append the position
-of each image as an argument. For example, the following command retrieves the first 10
-images of the Tiny Images dataset.
+of each image as an argument. For example, the following command retrieves the first 10 images of the Tiny Images dataset.
 
 {% highlight bash %}
 mosaic.py --db tiny_images.bin -o output.jpg 0 1 2 3 4 5 6 7 8 9
@@ -48,11 +29,7 @@ mosaic.py --db tiny_images.bin -o output.jpg 0 1 2 3 4 5 6 7 8 9
 # Executing a search
 
 Doing a simple k-nearest neighbor search in the whole dataset is quite easy.
-First, we need to perform
-a preprocessing step to normalize the image. The query image must be scaled to 32x32
-pixels and it must be a color image with the three color channels red, green and
-blue. After the preprocessing step we can use the script `knn.py` to search for the
-nearest neighbors.
+First, we need to perform a preprocessing step to normalize the image. The query image must be scaled to 32x32 pixels and it must be a color image with the three color channels red, green and blue. After the preprocessing step we can use the script `knn.py` to search for the nearest neighbors.
 
 The following commands demonstrate these steps for an image that is part of
 this repository.
@@ -64,14 +41,9 @@ convert -resize '32x32!' images/img.google.00000 queryimage.jpg
 knn.py --db tiny_images.bin -v queryimage.jpg | sort -g -S 2G | head -n 10000 > scores.txt
 {% endhighlight %}
 
-The output of `knn.py` is one line for each image of the Tiny Images dataset. Each line
-contains the score in the first column (i.e. the Euclidean distance between the query image
-and the image in the dataset) and the position of the image in the Tiny Images
-dataset.
+The output of `knn.py` is one line for each image of the Tiny Images dataset. Each line contains the score in the first column (i.e. the Euclidean distance between the query image and the image in the dataset) and the position of the image in the Tiny Images dataset.
 
-In the example above we sort the output by the score and select only the first 10000 lines
-which are the 10000 nearest neighbors. We can now inspect the nearest neighbors by creating
-an image from the nearest neighbors.
+In the example above we sort the output by the score and select only the first 10000 lines which are the 10000 nearest neighbors. We can now inspect the nearest neighbors by creating an image from the nearest neighbors.
 
 {% highlight bash %}
 # create a mosaic image for the first 100 nearest neighbours
@@ -79,7 +51,7 @@ head -n 100 scores.txt | awk '{print $2}' | \
 	xargs mosaic.py --db tiny_images.bin -o output.jpg
 {% endhighlight %}
 
-Here are the results. For the following query image 
+Here are the results. For the following query image
 
 ![nearest neighbors](/assets/tiny_images_knn/query_image_for_nearest_neighbors.jpg)
 

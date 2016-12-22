@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Two Bitcoins at the Price of One Double-Spending Attacks on Fast Payments in Bitcoin
+tags: paper
 ---
 
 This is a short summary of the paper "**Two Bitcoins at the Price of One? Double-Spending Attacks on Fast Payments in Bitcoin**" by Karame, Ghassan, Elli Androulaki, and Srdjan Capkun which appeared in 2012 in *IACR Cryptology ePrint Archive*.

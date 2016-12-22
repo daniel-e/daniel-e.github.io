@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A simple trick if sequential I/O is the bottleneck
+tags: linux
 ---
 
 In the following post I will show you a simple trick to increase the throughput
@@ -37,9 +38,9 @@ to the head's stdin) and writes only the first ten lines to stdout.
     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-There are two big advantages when using pipelines for data processing: 
+There are two big advantages when using pipelines for data processing:
 First, the whole process is parallelized with no additional implementation
-costs. All processes run at the same time. If data is available at the 
+costs. All processes run at the same time. If data is available at the
 input of one process it can already consume the data while the process
 which feeds the input is still working on the next chunk of data. If you
 would do this in a single process you often end up with concurrent
@@ -47,7 +48,7 @@ programming. Concurrent programming is challenging and error prone.
 Nonderterministic behavior for example induced by race conditions which
 might happen even only once in $$10^8$$ steps are very difficult to
 detect und to debug and could render the results of the data processing
-useless. In the worst case you may not even notice a problem and you could 
+useless. In the worst case you may not even notice a problem and you could
 make the wrong decisions based on incorrect data. Thus, instead of
 trying to parallelize many tasks in one big task it is usually a better
 idea to split big tasks into smaller tasks and connecting those tasks via
@@ -58,7 +59,7 @@ usually implies less bugs.
 
 If we have successfully established a highly parallelized data processing pipeline we often encounter another problem. At some point we usually need to read some data from the disk in order to process the data. We usually want to read the data via sequential I/O to optimally utilize the data throughput of the disk. However, compared to the throughput of the CPU that can be achieved for many tasks even sequential disk I/O cannot achieve the throughput which is required to optimally utilize the CPU. The disk becomes the bottleneck.
 
-There's sometimes an easy and very effective solution to this problem but 
+There's sometimes an easy and very effective solution to this problem but
 before describing this solution let me mention a very useful fact. If
 the data is read from disk for the first time and if it fits into main
 memory there's a good chance that the data is fully cached by the operating
@@ -80,8 +81,8 @@ jedoch garnicht notwendig. Denn** Due to the operating systems' page
 cache it often comes for free. No additional implementation effort is
 required. Let me explain why.
 
-When doing machine learning experiments we typically build a data 
-processing pipeline as described above. Some or all tasks in that pipeline 
+When doing machine learning experiments we typically build a data
+processing pipeline as described above. Some or all tasks in that pipeline
 can be parameterized (e.g. by setting some thresholds or the number of clusters for
 some clustering algorithm) and usually we run several experiments in which
 we vary the parameters for each task to find an optimal solution.
@@ -89,7 +90,7 @@ We can formalize this as follows. Let $$E_\theta:X\to Y$$ be
 a function that is parameterized by $$\theta$$ which takes some input
 $$x\in X$$ and computes some output $$y\in Y$$. For each particular
 $$\theta$$ this function is computed by the pipeline. We run several
-experiments for different values of $$\theta$$, i.e. we compute the 
+experiments for different values of $$\theta$$, i.e. we compute the
 following functions:
 
 $$E_{\theta_1}(x), E_{\theta_2}(x), E_{\theta_3}(x), \dots$$
@@ -126,11 +127,11 @@ $$ T(n) = \left(1+\frac{(n-1)}{k}\right)t_d + nt_E$$
 Because the evaluation of $$E$$ is bounded by I/O (by definition above) the
 last term $$nt_E$$ must be an upper bound for the time required to
 compute the function $$E$$ concurrently for $$n$$ different parameters.
-Concretely, if 
+Concretely, if
 
-<!-- 
+<!--
 the last term nt_E ist sogar noch kleiner
-Because 
+Because
 For example, if $$n=8$$ and $$k=50$$ we get $$T(n) = 1.06 t_d + nt_E$$.
 Advantage: E must not be modified
 

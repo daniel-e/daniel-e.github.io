@@ -1,20 +1,21 @@
 ---
 layout: post
 title: Estimating memory bandwidth
+tags: linux
 ---
 
 Quite often it is the case that computations (e.g. matrix multiplication) are limited by the memory bandwidth, i.e. the amount of data that can be transfered from RAM into the CPU in a specific amount of time. If we know that the computation is bounded by the memory bandwidth we can compute a lower bound on the time that is required for the computation if we also know how fast the data can be moved from RAM to the CPU.
 
-Ein Anwendungsgebiet ist maschinelles Lernen. Hier haben wir es häufig mit sehr großen Datensätzen zu tun auf denen viele Experimente mit unterschiedlichen Parametern durchgeführt werden, um abhängig von den Parametern die Performance der Algorithmen zu evaluieren. Zu große Datensätze haben den Nachteil, dass ein Experiment lange Zeit in Anspruch nimmt und deshalb nur wenige Experimente durchgeführt werden können. 
+Ein Anwendungsgebiet ist maschinelles Lernen. Hier haben wir es häufig mit sehr großen Datensätzen zu tun auf denen viele Experimente mit unterschiedlichen Parametern durchgeführt werden, um abhängig von den Parametern die Performance der Algorithmen zu evaluieren. Zu große Datensätze haben den Nachteil, dass ein Experiment lange Zeit in Anspruch nimmt und deshalb nur wenige Experimente durchgeführt werden können.
 
 
-In this post I would like to present the method I have used to estimate the memory bandwidth for my computer for two use cases: 
+In this post I would like to present the method I have used to estimate the memory bandwidth for my computer for two use cases:
 
-1) read data from RAM into the CPU and increment a counter with the data from the RAM 
+1) read data from RAM into the CPU and increment a counter with the data from the RAM
 
 2) copy data from one location in RAM to another location in RAM
 
-The first method delivers a lower bound for computations where data is read from memory and only a small set of counters or parameters are updated. 
+The first method delivers a lower bound for computations where data is read from memory and only a small set of counters or parameters are updated.
 
 
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Computing the determinant in Python in one (long) line of code
+tags: python
 ---
 
 <script type="text/javascript"

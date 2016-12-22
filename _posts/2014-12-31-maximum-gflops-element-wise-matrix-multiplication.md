@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Maximum GFLOPS for an element-wise matrix multiplication
+tags: linux
 ---
 
 A question that often comes into my mind when doing computations with Octave or other numerical libraries is how good do they utilize the CPU. Recently I was interested in estimating the number of GFLOPS that can be achieved with Octave for the element-wise matrix multiplication. For an nxn matrix exactly n*n multiplications (by default double precision floating point operations) have to be executed. Hence, to estimate the number of GFLOPS we just need to measure the time that is required for that number of operations to be executed.
@@ -72,4 +73,3 @@ As we can see copying 128MB takes 72 milliseconds. Hence, the element-wise matr
 To summarize the results: I have shown how we can derive from experiments and calculations an upper bound for the maximum number of GFLOPS that can be executed for an element-wise double precision matrix multiplication by any numerical library. I have shown that the maximum number of GFLOPS that can be done especially on my system for an element-wise matrix multiplication is 0.233 GFLOPS and that Octave can do it with 0.2 GFLOPS which is approximately 86% of the theoretical peak. Although Octave is near to the optimum 0.2 GFLOPS are far away from the theoretical 17.6 GFLOPS for one CPU. The experiments show that the main reason for this comes from the limited memory bandwidth.
 
 The code for these experiments can be found on Github: [https://github.com/daniel-e/misc/tree/master/measure_flops](https://github.com/daniel-e/misc/tree/master/measure_flops)
-
