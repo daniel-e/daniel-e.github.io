@@ -8,8 +8,7 @@ subtitle: Some notes on machine learning, security, my activities on GitHub and 
   {% for post in paginator.posts %}
   <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
-	  <!-- <h4 class="post-title">{{ post.title }}</h4>  -->
-	  <b>{{ post.title }}</b>
+	  <h4 class="post-title">{{ post.title }}</h4>
 	  {% if post.subtitle %}
 	  <h3 class="post-subtitle">
 	    {{ post.subtitle }}
