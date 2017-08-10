@@ -17,17 +17,17 @@ Now visit `http://localhost:4000` with the browser.
 
 # Markup tips
 
-**Include Python code with line numbers:**
+**Include Python code with line numbers**
 
     {% highlight python linenos %}
     ...
     {% endhighlight %}
 
-**Include links:**
+**Include links**
 
     [link text](https://www.example.com/)
 
-**Include math:**
+**Include math**
 
 Add this to `_includes/head.html`:
 
@@ -39,4 +39,7 @@ Now you can add equations to a post:
 
     $$ a^2 + b^2 = c^2 $$
 
+**Include images**
+
+    ![alt text](../assets/image.png)
 
