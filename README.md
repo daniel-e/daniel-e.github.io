@@ -17,21 +17,25 @@ Now visit `http://localhost:4000` with the browser.
 
 # Markup tips
 
-Include Python code with line numbers:
+**Include Python code with line numbers:**
 
     {% highlight python linenos %}
     ...
     {% endhighlight %}
 
-Include links:
+**Include links:**
 
     [link text](https://www.example.com/)
 
-Include math:
+**Include math:**
+
+Add this to `_includes/head.html`:
 
     <script type="text/javascript"
         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
+
+Now you can add equations to a post:
 
     $$ a^2 + b^2 = c^2 $$
 
