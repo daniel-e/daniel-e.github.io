@@ -5,9 +5,11 @@ Visit my blog at http://daniel-e.github.io/
 ```bash
 git clone git@github.com:daniel-e/daniel-e.github.io.git
 cd daniel-e.github.io/
+
 apt-get install ruby ruby-dev
 sudo gem install bundler
 sudo bundle install
+
 bundle exec jekyll serve
 ```
 
@@ -24,5 +26,13 @@ Include Python code with line numbers:
 Include links:
 
     [link text](https://www.example.com/)
+
+Include math:
+
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    $$ a^2 + b^2 = c^2 $$
 
 
