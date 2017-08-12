@@ -8,7 +8,7 @@ cd daniel-e.github.io/
 
 apt-get install ruby ruby-dev
 sudo gem install bundler
-sudo bundle install
+bundle install
 
 bundle exec jekyll serve
 ```
