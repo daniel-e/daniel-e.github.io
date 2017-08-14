@@ -43,7 +43,7 @@ and the goal is to find values for the parameters $w_1$ (the slope) and $w_0$ (t
 
 $$ E = \frac{1}{2m} \sum_{i=1}^m (h(x_i) - y_i)^2 $$
 
-Minimizing this error function, also called the **squared error function**, is one of the simplest and most frequently used methods to find the best fit. It computes the average of the squares of the errors, i.e. the differences between the points of the data set and the fitted value.
+Minimizing this error function which also called the **squared error function**, is one of the simplest and most frequently used methods to find the best fit. It computes the average of the squares of the errors, i.e. the differences between the points of the data set and the fitted value.
 
 In other words, we want to solve the following optimization problem with respect to $w_0$ and $w_1$:
 
@@ -51,7 +51,7 @@ $$ \text{arg}\,\min\limits_{w_0, w_1}\, \frac{1}{2m} \sum_{i=1}^m (w_1 \cdot x_i
 
 ## Gradient descent
 
-One method to minimize this function is by applying one of the most successful algorithms used by the machine learning community called **gradient descent**. Gradient descent is an iterative algorithm to find the minimum (or maximum) of a function for which its first derivative can be computed. At the beginning of the algorithm the parameters which we want to optimize are typically initialized to arbitrary values. Often just random values are used. Then, the algorithm updates the parameters step by step, in each step towards the minimum. This is done by adding a fraction of the negative gradient of the function to each parameter. The algorithm terminates if the updates are below some small threshold. Unfortunately, the algorithm can also converge to a local minimum. This is especially a problem for error functions which are not convex and which have a quite complex error surface. Gradient descent is usually executed several times with different initial values for the parameters so that from all solutions the best one can be selected.
+One method to minimize the squared error function is by applying one of the most successful algorithms used by the machine learning community called gradient descent. Gradient descent is an iterative algorithm to find the minimum (and maximum respectively) of a function for which its first derivative can be computed. At the beginning of the algorithm the parameters which we want to optimize are typically initialized to arbitrary values. Often just random values are used. Then, the algorithm updates the parameters step by step, in each step towards the minimum. This is done by adding a fraction of the negative gradient of the function to each parameter at each step. The algorithm terminates if the updates are below some small threshold. Unfortunately, the algorithm can also converge to a local minimum. This is especially a problem for error functions which are not convex and which have a quite complex error surface. Gradient descent is usually executed several times with different initial values for the parameters so that from all solutions the best one can be selected.
 
 An example is shown in the image below. We start with an arbitrary value $x_0$ for the parameter $x$. At the first step the derivative at $x_0$ is computed (the red line) and $x$ is updated into the negative direction of the derivative resulting in $x_1$. This step repeats until $x$ converges to some value.
 
