@@ -43,29 +43,156 @@ and the goal is to find values for the parameters $w_1$ (the slope) and $w_0$ (t
 
 $$ E = \frac{1}{2m} \sum_{i=1}^m (h(x_i) - y_i)^2 $$
 
-Minimizing this error function which also called the **squared error function**, is one of the simplest and most frequently used methods to find the best fit. It computes the average of the squares of the errors, i.e. the differences between the points of the data set and the fitted value.
+This error function is called the **squared error function** and it is one of the simplest and most frequently used methods to find the best fit. Let $m$ be the number of examples in the data set, let $h(x)$ be the learned hypothesis and let $y_i$ be the label of example $x_i$. Then it computes the average of the squares of the errors, i.e. the differences between the points of the data set and the fitted value.
 
 In other words, we want to solve the following optimization problem with respect to $w_0$ and $w_1$:
 
 $$ \text{arg}\,\min\limits_{w_0, w_1}\, \frac{1}{2m} \sum_{i=1}^m (w_1 \cdot x_i + w_0 - y_i)^2 $$
 
+The factor $\frac{1}{2}$ does not have any effect on the result but is just used to simplify the first derivative of this equation as we well see below.
+
 ## Gradient descent
 
-One method to minimize the squared error function is by applying one of the most successful algorithms used by the machine learning community called gradient descent. Gradient descent is an iterative algorithm to find the minimum (and maximum respectively) of a function for which its first derivative can be computed. At the beginning of the algorithm the parameters which we want to optimize are typically initialized to arbitrary values. Often just random values are used. Then, the algorithm updates the parameters step by step, in each step towards the minimum. This is done by adding a fraction of the negative gradient of the function to each parameter at each step. The algorithm terminates if the updates are below some small threshold. Unfortunately, the algorithm can also converge to a local minimum. This is especially a problem for error functions which are not convex and which have a quite complex error surface. Gradient descent is usually executed several times with different initial values for the parameters so that from all solutions the best one can be selected.
+One method to minimize the squared error function is by applying one of the most successful algorithms used by the machine learning community called gradient descent. Gradient descent is an iterative algorithm to find the minimum of a function for which its first derivative can be computed. At the beginning of the algorithm the parameters which we want to optimize are typically initialized to arbitrary values. Often just random values are used. Then, the algorithm updates the parameters step by step, in each step towards the minimum. This is done by adding a fraction of the negative gradient of the function to each parameter at each step. The algorithm terminates if the changes to the parameters are below some small threshold. Unfortunately, the algorithm can also converge to a local minimum. This is especially a problem for error functions which are not convex and which have a quite complex error surface. Gradient descent is usually executed several times with different initial values for the parameters so that from all solutions the best one can be selected.
 
-An example is shown in the image below. We start with an arbitrary value $x_0$ for the parameter $x$. At the first step the derivative at $x_0$ is computed (the red line) and $x$ is updated into the negative direction of the derivative resulting in $x_1$. This step repeats until $x$ converges to some value.
+An example is shown in the image below. We start with an arbitrary value $x_0$ for the parameter $x$. At the first step the derivative at $x_0$ is computed (the red line) and $x$ is updated into the negative direction of the derivative resulting in $x_1$. This step is repeated until $x$ converges to some value.
 
 XXX
 
-For linear regression the derivatives are as follows:
+To be able to use gradient descent to compute the minimum of the error function we have to compute its derivative with respect to every parameters first. For linear regression the derivatives are as follows:
 
 $$\frac{\partial E}{\partial w_0} = \frac{1}{m} \sum_{i=1}^m (w_1 \cdot x_i + w_0 - y_i) $$
 
 $$\frac{\partial E}{\partial w_1} = \frac{1}{m} \sum_{i=1}^m x_i (w_1 \cdot x_i + w_0 - y_i) $$
 
+When using tensorflow we don't need to compute the derivatives manually. Tensorflow is taking care of it as we will see below. Hence, we won't dive deeper into the derivatives for linear regression at this point.
 
+## Putting it all together
 
+Now, that we have a working environment and after having recapped the very basics of linear regression and gradient descent we can now start with the implementation using tensorflow.
 
-## XXX
+The following code, which is also available on GitHub, is a complete example which I'm going to describe below in more details. The example fits a line through a set of points so that the squared error function is minimized. The result is plotted via matplotlib and a summary is written to the directory `summary` in the working directory which contains the learning curve and which can be inspected with tensorboard.
 
-Now, that we have a working environment and after having recapped the very basics of linear regression we can now
+{% highlight python linenos %}
+#!/usr/bin/env python3
+
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+# initialize the variables to be optimized with 0.3
+w0 = tf.Variable(.3, dtype = tf.float32)
+w1 = tf.Variable(.3, dtype = tf.float32)
+# x is the only feature of our examples
+x = tf.placeholder(tf.float32)
+
+# equation for linear regression
+h = w1 * x + w0
+
+# training set:
+# x_train = features
+x_train = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+# y_train = target values
+y_train = [0.1, 1.3, 1.2, 2.3, 2.1, 3.0, 3.1]
+
+# create a session and initialize the variables W and b
+sess = tf.Session()
+init = tf.global_variables_initializer()
+sess.run(init)
+
+# define loss function (i.e. squared error function)
+y = tf.placeholder(tf.float32)
+loss = tf.reduce_sum(tf.square(h - y))
+
+# do some stuff so that a summary is created
+summary_loss = tf.summary.scalar('loss', loss)
+merged = tf.summary.merge_all()
+file_writer = tf.summary.FileWriter('summary', sess.graph)
+
+# training with gradient descent, 800 iterations
+# step factor 0.001
+optimizer = tf.train.GradientDescentOptimizer(0.001)
+train = optimizer.minimize(loss)
+for i in range(800):
+    sess.run(train, {x: x_train, y: y_train})
+    # create summary for every 10th iteration
+    if i % 10 == 0:
+        summary = sess.run(merged, {x: x_train, y: y_train})
+        file_writer.add_summary(summary, i)
+
+# write the learned parameters to stdout
+print(sess.run([w0, w1]))
+
+# plot the training data
+plt.scatter(x_train, y_train)
+# plot the learned hypothesis
+plt.plot(x_train, sess.run(h, {x: x_train}), 'r')
+plt.show()#!/usr/bin/env python3
+{% endhighlight %}
+
+## Details of the code
+Let's walk through the code step by step. At the beginning (after including the required modules) we have the following code:
+
+{% highlight python %}
+w0 = tf.Variable(.3, dtype = tf.float32)
+w1 = tf.Variable(.3, dtype = tf.float32)
+x = tf.placeholder(tf.float32)
+h = w1 * x + w0
+{% endhighlight %}
+
+Here, we define the hypothesis for linear regression, i.e. we multiply a feature $x$ with the parameter $w_1$ (the slope) and add the parameter $w_0$ (the y-intercept) to that product. These parameters need to be optimized and for each such parameter we use an instance of the class `Variable` of the tensorflow module. Due to the fact that we have just one feature all variables are scalars (32 bit floats) which we initialize to the value 0.3. As mentioned earlier we usually would use random values and would run the code several times to find the best solution.
+
+In the next code block we create a set of points for which we want to find the best fit. We create seven data points. Each point has just one feature (the x value) which is stored in `x_train`. The target value for each data point is stored in `y_train`.
+
+{% highlight python %}
+x_train = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+y_train = [0.1, 1.3, 1.2, 2.3, 2.1, 3.0, 3.1]
+{% endhighlight %}
+
+Now, some tensorflow "overhead" is done. A tensorflow session is created which is required to run tensorflow operations. A session encapsulates the environment in which operations are executed. We add the operation `global_variables_initializer` which initializes our global variables $w_0$ and $w_1$. Via the method `run` we execute the next operation, i.e the variable initializer.
+
+{% highlight python %}
+sess = tf.Session()
+init = tf.global_variables_initializer()
+sess.run(init)
+{% endhighlight %}
+
+In the next step we define the squared error function which we want to minimize. We define a placeholder y which is later fed with the target values of the training examples to compute the error of the current hypothesis.
+
+{% highlight python %}
+y = tf.placeholder(tf.float32)
+loss = tf.reduce_sum(tf.square(h - y))
+{% endhighlight %}
+
+As mentioned earlier tensorflow offers a way to inspect different aspects of the computation via tensorboard. For example, we can access a graphical representation of the computation graph and we can look at the learning curve. To do this, tensorflow offers "summary operations". As we want to be able to look at the learning curve we add a summary for the loss function (first line). If no `collection` parameter is given (as this is the case in the example) the summary is added to the default collection `GraphKeys.SUMMARIES`.
+
+{% highlight python %}
+summary = tf.summary.scalar(name = 'loss', tensor = loss)
+file_writer = tf.summary.FileWriter('summary', sess.graph)
+{% endhighlight %}
+
+XXX
+
+{% highlight python %}
+optimizer = tf.train.GradientDescentOptimizer(0.001)
+train = optimizer.minimize(loss)
+for i in range(800):
+    sess.run(train, {x: x_train, y: y_train})
+    # create summary for every 10th iteration
+    if i % 10 == 0:
+        summary = sess.run(summary, {x: x_train, y: y_train})
+        file_writer.add_summary(summary, i)
+{% endhighlight %}
+
+XXX
+
+{% highlight python %}
+print(sess.run([W, b]))
+{% endhighlight %}
+
+XXX
+
+{% highlight python %}
+plt.scatter(x_train, y_train)
+plt.plot(x_train, sess.run(h, {x: x_train}), 'r')
+plt.show()
+{% endhighlight %}
