@@ -163,14 +163,18 @@ y = tf.placeholder(tf.float32)
 loss = tf.reduce_sum(tf.square(h - y))
 {% endhighlight %}
 
-As mentioned earlier tensorflow offers a way to inspect different aspects of the computation via tensorboard. For example, we can access a graphical representation of the computation graph and we can look at the learning curve. To do this, tensorflow offers "summary operations". As we want to be able to look at the learning curve we add a summary for the loss function (first line). If no `collection` parameter is given (as this is the case in the example) the summary is added to the default collection `GraphKeys.SUMMARIES`.
+As mentioned earlier, TensorFlow offers a way to explore different aspects of the computation via TensorBoard. This makes debugging and optimizing your models very easy and comfortable. We can access a graphical representation of the computation graph and we can plot different metrics like a learning curve. To do this TensorFlow offers so called "summary operations". For example, if we want check the learning curve of our TensorFlow computations we just have to add a summary operation which collects the values of the loss function at different steps of our TensorFlow computations. As the loss function returns a single floating point value the summary needs to be a scalar. In the first line of the following code block you can see how the summary is created. A summary takes three parameters. A name, a tensor which is the result of one evaluation of the loss function and an optional third parameter, a list of graph collection keys to which the summary is added. If this parameter is omitted (as it is the case in our example) the summary is added to the default collection `GraphKeys.SUMMARIES` which is used by all summary operations if no other collection is specified to collect and retrieve values associated with a graph.
+
+In the second line we create a `FileWriter` which asynchronously writes summaries and events into files in the directory `summary`. The second parameter takes a graph which can be explored with TensorBoard. Here, we provide the graph of our current session.
 
 {% highlight python %}
 summary = tf.summary.scalar(name = 'loss', tensor = loss)
-file_writer = tf.summary.FileWriter('summary', sess.graph)
+writer = tf.summary.FileWriter('summary', sess.graph)
 {% endhighlight %}
 
-XXX
+Now, we are going to optimize the parameters of the linear regression equation with an gradient descent optimizer. We create an instance of the class `GradientDescentOptimizer` and provide the learning rate as first parameter. After that, we call `minimize` on that instance to get an operation which minimizes the value contained in the provided tensor. As we want to minimize the loss function we provide the tensor of our squared error function. Then, we run 800 iterations. In each iteration the operation to minimize the loss function is executed. The input to execute the operation is provided as the second parameter in a dictionary. This dictionary contains the placeholders to evaluate the loss function as keys and the data for the placeholders as values.
+
+Every tenth iteration we compute a summary and add the result of the summary to the writer which writes it into a file.
 
 {% highlight python %}
 optimizer = tf.train.GradientDescentOptimizer(0.001)
@@ -179,20 +183,42 @@ for i in range(800):
     sess.run(train, {x: x_train, y: y_train})
     # create summary for every 10th iteration
     if i % 10 == 0:
-        summary = sess.run(summary, {x: x_train, y: y_train})
-        file_writer.add_summary(summary, i)
+        r = sess.run(summary, {x: x_train, y: y_train})
+        writer.add_summary(r, i)
 {% endhighlight %}
 
-XXX
+In the following line we just print the learned parameters of our hypothesis to stdout. To produce the values of the parameters we have to run the computational graph.
 
 {% highlight python %}
-print(sess.run([W, b]))
+print(sess.run([w0, w1]))
 {% endhighlight %}
 
-XXX
+The output is:
+
+    [-0.22317071, 0.84737241]
+
+With these values our hypothesis is $ h(x) = 0.84x - 0.22$.
+
+Finally, we plot our training set and our learned hypothesis. This is easily done via `matplotlib`. In the first line we create a scatter plot of our training data. The first parameter takes a vector of the x values of each point in our dataset. The second parameter takes a vector of the corresponding y values.
+
+In the second line we plot the hypothesis. Again the first parameter takes a vector of the x values of each point in our dataset. The second parameter now contains a vector of the y values computed by the hypothesis for each x value.
 
 {% highlight python %}
 plt.scatter(x_train, y_train)
 plt.plot(x_train, sess.run(h, {x: x_train}), 'r')
 plt.show()
 {% endhighlight %}
+
+The result is the following plot.
+
+![linear regression](../assets/tensorflow_linear_regression/result.png)
+
+Now, we can look at the learning curve via TensorBoard.
+
+    tensorboard --logdir=summary
+    
+![learning curve](../assets/tensorflow_linear_regression/loss.png)
+
+## Summary
+
+In this post we have seen how to do linear regression with TensorFlow. We have discussed the basic concepts of tensors, gradient descent, summaries
