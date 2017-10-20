@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Linux Bash Tricks
+tags: [linux]
 ---
 
 The Linux bash is quite powerful. It has so many useful commands (like sort, jq, awk, sed, grep, xargs, ...) and a very powerful pipe mechanism which allows the output from one command to become the input of another command. With this mechanism you get for many use cases parallelism for free. For example, two processes connected via a pipe are running at the same time. If the first process (which produces the input for the second process) outputs something, the second process can take this output and process it while the first process is already producing the next output. 
