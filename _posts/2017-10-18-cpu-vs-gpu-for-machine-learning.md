@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CPU vs GPU for Machine Learning
-tags: [machine_learning]
+tags: [machine learning]
 ---
 
 _In this article I just summarize some thoughts while reading an article about machine learning doing on a CPU vs GPU. All of my statements are not well researched and I could be totally wrong. Keep that in mind when you're reading this post. ;)_

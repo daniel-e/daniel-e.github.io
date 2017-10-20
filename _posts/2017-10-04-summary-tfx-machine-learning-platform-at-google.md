@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Summary&#58; TFX - Machine Learning Platform at Google
-tags: [paper, machine_learning]
+tags: [paper, machine learning]
 ---
 
 # TFX - Machine Learning Platform at Google

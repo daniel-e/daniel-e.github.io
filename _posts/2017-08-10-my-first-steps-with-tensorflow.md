@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My First Steps with Tensorflow
-tags: [python, machine_learning]
+tags: [python, machine learning]
 ---
 
 # My first steps with tensorflow

@@ -2,6 +2,8 @@ Visit my blog at http://daniel-e.github.io/
 
 # Running the blog locally
 
+Do these steps once:
+
 ```bash
 git clone git@github.com:daniel-e/daniel-e.github.io.git
 cd daniel-e.github.io/
@@ -9,7 +11,11 @@ cd daniel-e.github.io/
 apt-get install ruby ruby-dev
 sudo gem install bundler
 bundle install
+```
 
+Do this step every time changes have been made:
+
+```
 bundle exec jekyll serve
 ```
 
@@ -42,4 +48,8 @@ Now you can add equations to a post:
 **Include images**
 
     ![alt text](../assets/image.png)
+
+**Grep all used tags**
+
+    grep "tags:" _posts/* | cut -d: -f3 | tr -d '[]' | tr , '\n' | sort -u
 

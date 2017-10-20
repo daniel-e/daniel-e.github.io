@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Summary&#58; In-Datacenter Performance Analysis of a Tensor Processing Unit
-tags: [paper, machine_learning]
+tags: [paper, machine learning]
 ---
 
 # Summary: In Datacenter Performance Analysis of a Tensor Processing Unit
