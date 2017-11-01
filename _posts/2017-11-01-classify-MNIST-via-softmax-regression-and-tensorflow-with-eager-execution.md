@@ -79,6 +79,7 @@ Train the model.
 for i in range(100):
     print("loss on training data {}, on test data {}".format(loss(X_tr, y_tr).numpy(), loss(X_te, y_te).numpy()))
     print("accuracy on test data", acc(X_te, y_te))
+    # The parameters given to grad are passed to our loss function defined above.
     optimizer.apply_gradients(grad(X_tr, y_tr))
 {% endhighlight %}
 
