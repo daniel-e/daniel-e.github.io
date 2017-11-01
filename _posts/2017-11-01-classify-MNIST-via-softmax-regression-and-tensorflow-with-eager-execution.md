@@ -116,3 +116,5 @@ for i in range(100):
     print("accuracy on test data", acc(X_te, y_te))
     optimizer.apply_gradients(grad(X_tr, y_tr))
 {% endhighlight %}
+
+The code is also available on [GitHub](https://github.com/daniel-e/ml/blob/master/tf_eager_softmax_regression.py).
