@@ -113,7 +113,7 @@ def loss(X, y):
     z = tf.nn.softmax(tf.matmul(X, W) + b)
     return tf.reduce_mean(-tf.reduce_sum(y * tf.log(z), reduction_indices=[1]))
 
-ptimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
 grad = tfe.implicit_gradients(loss)
 
 for i in range(100):
