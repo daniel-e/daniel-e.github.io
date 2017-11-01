@@ -77,7 +77,7 @@ Train the model.
 
 {% highlight python linenos %}
 for i in range(100):
-    print("loss on training data {}, on test data {}:".format(loss(X_tr, y_tr).numpy(), loss(X_te, y_te).numpy()))
+    print("loss on training data {}, on test data {}".format(loss(X_tr, y_tr).numpy(), loss(X_te, y_te).numpy()))
     print("accuracy on test data", acc(X_te, y_te))
     optimizer.apply_gradients(grad(X_tr, y_tr))
 {% endhighlight %}
@@ -117,7 +117,7 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
 grad = tfe.implicit_gradients(loss)
 
 for i in range(100):
-    print("loss on training data {}, on test data {}:".format(loss(X_tr, y_tr).numpy(), loss(X_te, y_te).numpy()))
+    print("loss on training data {}, on test data {}".format(loss(X_tr, y_tr).numpy(), loss(X_te, y_te).numpy()))
     print("accuracy on test data", acc(X_te, y_te))
     optimizer.apply_gradients(grad(X_tr, y_tr))
 {% endhighlight %}
