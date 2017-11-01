@@ -11,8 +11,6 @@ Here's an example which shows how to pass variable length arguments and get the 
 def g(a, *args):
     b, c = args
     assert a == 1
-    assert b == 2
-    assert c == 3
 
 def f(a, *args):
     g(a, *args)
