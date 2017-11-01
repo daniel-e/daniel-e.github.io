@@ -32,11 +32,8 @@ tfe.enable_eager_execution()
 Load the MNIST database via the `mnistdb` module.
 
 {% highlight python linenos %}
-data = mio.load(scaled=True)
-X_tr = data.trainX
-y_tr = tf.one_hot(data.trainY, depth=10, axis=1)
-X_te = data.testX
-y_te = tf.one_hot(data.testY, depth=10, axis=1)
+data = mio.load(scaled=True, one_hot=True)
+X_tr, y_tr, X_te, y_te = (data.trainX, data.trainY, data.testX, data.testY)
 {% endhighlight %}
 
 Create the weights and biases which need to be optimized. At the moment we have to assign a name to each created variable manually. This might change for the next builds so that probably we could omit the `name` parameter in the future.
@@ -94,11 +91,8 @@ import mnistdb.io as mio
 
 tfe.enable_eager_execution()
 
-data = mio.load(scaled=True)
-X_tr = data.trainX
-y_tr = tf.one_hot(data.trainY, depth=10, axis=1)
-X_te = data.testX
-y_te = tf.one_hot(data.testY, depth=10, axis=1)
+data = mio.load(scaled=True, one_hot=True)
+X_tr, y_tr, X_te, y_te = (data.trainX, data.trainY, data.testX, data.testY)
 
 W = tfe.Variable(tf.random_normal(shape=(28*28, 10)), name="W")
 b = tfe.Variable(tf.zeros((1, 10)), name="b")
