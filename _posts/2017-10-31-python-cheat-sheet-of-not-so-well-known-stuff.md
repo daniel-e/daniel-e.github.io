@@ -49,3 +49,13 @@ class X:
 x = X()
 print(x)
 {% endhighlight %}
+
+### Expanding tuples into arguments
+
+{% highlight python linenos %}
+def f(a, b, c):
+    pass
+
+params = (1, 2, 3)
+f(*params)
+{% endhighlight %}
