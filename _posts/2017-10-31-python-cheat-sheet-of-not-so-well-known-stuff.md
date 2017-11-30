@@ -59,3 +59,14 @@ def f(a, b, c):
 params = (1, 2, 3)
 f(*params)
 {% endhighlight %}
+
+### () operator in Python
+
+{% highlight python linenos %}
+class X:
+    def __call__(self, x):
+       return x + 1
+
+f = X()
+print(f(5))  # print the value 6
+{% endhighlight %}
