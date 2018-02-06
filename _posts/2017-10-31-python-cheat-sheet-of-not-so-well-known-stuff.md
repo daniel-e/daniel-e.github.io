@@ -70,3 +70,15 @@ class X:
 f = X()
 print(f(5))  # print the value 6
 {% endhighlight %}
+
+### fileinput
+
+{% highlight python linenos %}
+import filename
+for line in fileinput.input():
+    process(line)
+{% endhighlight %}
+
+"This iterates over the lines of all files listed in sys.argv[1:], defaulting to sys.stdin if the list is empty. If a filename is '-', it is also replaced by sys.stdin."
+
+source: https://docs.python.org/2/library/fileinput.html
