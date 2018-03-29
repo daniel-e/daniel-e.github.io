@@ -53,3 +53,8 @@ Now you can add equations to a post:
 
     grep "tags:" _posts/* | cut -d: -f3 | tr -d '[]' | tr , '\n' | sort -u
 
+Add this to each article
+
+    <div style="font-size:small; color: gray; font-style: italic">
+      By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+    </div>
