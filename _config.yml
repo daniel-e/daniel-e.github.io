@@ -41,8 +41,8 @@ author:
   name: daniel-e
   email: "git.daniele@gmail.com"
   facebook: yourname  # eg. daattali
-  github: https://github.com/daniel-e/    # eg. daattali
-  twitter: yourname   # eg. daattali
+  github: daniel-e    # eg. daattali
+  twitter: dnl0x00   # eg. daattali
   google-plus: +yourname   # eg. +DeanAttali or 109424658772469020925
   linkedin: yourname  # eg. daattali
   xing: yourname      # eg. daattali
@@ -57,7 +57,7 @@ footer-links-active:
   rss: false
   facebook: false
   email: true
-  twitter: false
+  twitter: true
   google-plus: false
   github: true
   linkedin: false
