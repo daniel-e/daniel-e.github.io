@@ -3,6 +3,9 @@ layout: post
 title: Loading MNIST Handwritten Digits With Octave or MATLAB
 tags: [machine learning]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 The MNIST handwritten digit database is a very popular data set for testing machine learning algorithms. It contains 60,000 labeled training examples and 10,000 examples for testing. The data set can be downloaded from [here](http://yann.lecun.com/exdb/mnist/). On GitHub I have published a [repository](https://github.com/daniel-e/mnist_octave) which contains a file `mnist.mat` created from this raw data set which can easily be loaded with Octave or MATLAB so that you can easily use the data set in Octave or MATLAB.
 
@@ -74,4 +77,3 @@ If you cloned the GitHub repository this step is optional as the repository alre
     ./mnist.py
 
 A new file `mnist.mat` is created which contains the data. This matrix can now be loaded with Octave or MATLAB as described above.
-

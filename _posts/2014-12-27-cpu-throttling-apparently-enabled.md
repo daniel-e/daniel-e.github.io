@@ -2,6 +2,9 @@
 layout: post
 title: CPU Throttling apparently enabled
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 When compiling [ATLAS](http://math-atlas.sourceforge.net/) (Automatically Tuned Linear Algebra Software) on modern CPUs it may happen that you get the following error message:
 

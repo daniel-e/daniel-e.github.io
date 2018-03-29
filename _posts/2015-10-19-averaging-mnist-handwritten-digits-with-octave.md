@@ -3,6 +3,9 @@ layout: post
 title: Averaging MNIST handwritten digits with Octave
 tags: [machine learning]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 In this post we will see how the average digit of the MNIST database of handwritten digits looks like.
 

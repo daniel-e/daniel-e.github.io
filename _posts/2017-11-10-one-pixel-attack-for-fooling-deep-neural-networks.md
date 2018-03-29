@@ -3,6 +3,9 @@ layout: post
 title: One Pixel Attack for Fooling Deep Neural Networks
 tags: [machine learning, paper]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 Here's a short summary of a [paper](https://arxiv.org/pdf/1710.08864.pdf) three machine learning researchers from the Kyushu University in Japan have published in October 2017 in which they describe a novel technique based on differential evolution to create adversarial images to force deep neural networks to misclassify objects shown in natural images. The authors show that it is possible to produce adversarial images with only very small perturbation in the original image.
 

@@ -3,6 +3,9 @@ layout: post
 title: Python Cheat Sheet of not so well-known stuff
 tags: [python]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 ### Non-keyworded, variable length argument list.
 Here's an example which shows how to pass variable length arguments and get the values.

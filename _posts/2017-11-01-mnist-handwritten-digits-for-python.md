@@ -3,6 +3,9 @@ layout: post
 title: MNIST handwritten digits for Python
 tags: [machine learning, python]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 I've recently created a small Python library [mnistdb](https://github.com/daniel-e/mnistdb) which can be used to easily load the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/) in Python into numpy arrays without any manual effort. It works for Python 2 and Python3.
 

@@ -3,6 +3,9 @@ layout: post
 title: Estimating memory bandwidth
 tags: linux
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 Quite often it is the case that computations (e.g. matrix multiplication) are limited by the memory bandwidth, i.e. the amount of data that can be transfered from RAM into the CPU in a specific amount of time. If we know that the computation is bounded by the memory bandwidth we can compute a lower bound on the time that is required for the computation if we also know how fast the data can be moved from RAM to the CPU.
 

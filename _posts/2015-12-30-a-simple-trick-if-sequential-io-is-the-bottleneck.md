@@ -3,6 +3,9 @@ layout: post
 title: A simple trick if sequential I/O is the bottleneck
 tags: linux
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 In the following post I will show you a simple trick to increase the throughput
 of a disk's sequential I/O up to two orders of magnitude if for some

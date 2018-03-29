@@ -3,6 +3,9 @@ layout: post
 title: My First Steps with Tensorflow
 tags: [python, machine learning]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 # My first steps with tensorflow
 
@@ -216,7 +219,7 @@ The result is the following plot.
 Now, we can look at the learning curve via TensorBoard.
 
     tensorboard --logdir=summary
-    
+
 ![learning curve](../assets/tensorflow_linear_regression/loss.png)
 
 ## Summary

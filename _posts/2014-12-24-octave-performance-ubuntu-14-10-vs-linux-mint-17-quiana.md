@@ -2,6 +2,9 @@
 layout: post
 title: Octave performance - Ubuntu 14.10 vs Linux Mint 17 Qiana
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 Recently I played around with Octave that I've installed on Ubuntu 14.10 running in a Docker container. The host system on which Docker is running is a Linux Mint 17 (Qiana). I was wondering whether there is a significant overhead induced by Docker when doing big matrix multiplications. So, I've done a quick test in Octave. First,  I have multiplied a 5000x5000 matrix with Octave on Ubuntu 14.10 in the Docker container. Then, I have multiplied another matrix with the same dimensions on Linux Mint 17. The very surprising result was as follows:
 

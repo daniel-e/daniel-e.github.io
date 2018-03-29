@@ -3,7 +3,9 @@ layout: post
 title: DoubleGuard Detecting Intrusions In Multi-tier Web Applications
 tags: paper
 ---
-
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 This is a short summary of the paper "**DoubleGuard: Detecting Intrusions In Multi-tier Web Applications**" by Le, M., Stavrou, A., & Kang, B. B. which appeared in 2012 in *IEEE Transactions on dependable and secure computing*, 9(4), 512-525.
 

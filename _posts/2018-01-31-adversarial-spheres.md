@@ -3,6 +3,9 @@ layout: post
 title: Adversarial Spheres
 tags: [machine learning, paper]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 State-of-the-art computer vision models are vulnerable to adversarial examples, i.e. for every image that is classified correctly you can find very small perturbations which causes the model to misclassify the image. The perturbations are so small that the original image and the modified image are indistinguishable for a human. The reason for that is still poorly understood and remains an open problem in the machine learning community.
 

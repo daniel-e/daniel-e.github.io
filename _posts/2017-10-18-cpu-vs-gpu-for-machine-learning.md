@@ -3,6 +3,9 @@ layout: post
 title: CPU vs GPU for Machine Learning
 tags: [machine learning]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 _In this article I just summarize some thoughts while reading an article about machine learning doing on a CPU vs GPU. All of my statements are not well researched and I could be totally wrong. Keep that in mind when you're reading this post. ;)_
 
@@ -15,4 +18,3 @@ On the other hand a GeForce GTX 1080 achieves about 8.87 TFLOPS (single point) (
 So, at the end, you get about 16 GFLOPS/€ when you buy a GeForce and about 0.12 GFLOPS/€ when you plan to use the 8180M processor. The gap (performance/€) is about 140.
 
 It’s possible that the Linpack benchmark cannot be compared with the GeForce benchmark. Maybe I've compared apples and oranges. Maybe the Linpack benchmark measures double precision floating point (haven’t checked this). Nevertheless, even if the GeForce achieves only 4 TFLOPS double precision the gap is still >50X, not 2X.
-

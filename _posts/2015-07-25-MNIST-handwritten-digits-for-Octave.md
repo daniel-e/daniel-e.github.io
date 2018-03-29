@@ -3,6 +3,9 @@ layout: post
 title: MNIST database of handwritten digits for Octave
 tags: [machine learning]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 In this post you will see how to convert the MNIST database of handwritten digits via [rustml](/rustml/rustml/) into a format that can be read with [Octave](https://www.gnu.org/software/octave/).
 

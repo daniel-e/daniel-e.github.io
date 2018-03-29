@@ -3,6 +3,9 @@ layout: post
 title: BadNets -Identifying Vulnerabilities in the Machine Learning Model Supply Chain
 tags: [machine learning, paper]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 On August a [paper](https://arxiv.org/pdf/1708.06733) was published which describes ways to inject backdoors into machine learning models. This might be a problem especially for deep learning networks which are usually used for image recognition, speech recognition and machine translation because these networks are usually computationally expensive (building a model from scratch can take many weeks of intensive computation on many GPUs) and hence building such networks may be outsourced.
 

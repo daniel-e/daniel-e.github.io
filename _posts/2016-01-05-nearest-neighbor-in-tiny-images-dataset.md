@@ -3,6 +3,9 @@ layout: post
 title: Nearest neighbor search in the Tiny Images dataset
 tags: [machine learning]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 The Tiny Images dataset consists of 79,302,017 images, each being a 32x32 color RGB image. The images have been retrieved from the Internet from several image search engines, are stored in an uncompressed large binary file (227GB) so that each image can be easily accessed via random access and are loosely labeled with one of the 75,062 non-abstract nouns in English as listed in the Wordnet lexical database. To download the file or to get more details about the dataset you should visit [this site](http://horatio.cs.nyu.edu/mit/tiny/data/index.html).
 

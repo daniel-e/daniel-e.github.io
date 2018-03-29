@@ -2,6 +2,9 @@
 layout: post
 title: Permission denied for lsof in Docker
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 On my host system I have installed Linux Mint 17 and on that host I'm running Docker with Ubuntu 14.10. Recently I wanted to call lsof in a Docker container and I got the following permission denied error:
 

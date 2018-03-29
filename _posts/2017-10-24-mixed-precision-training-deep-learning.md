@@ -3,6 +3,9 @@ layout: post
 title: Mixed Precision Training
 tags: [paper, machine learning]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 In October this year researchers from Baidu and NVIDIA have published a [paper](https://arxiv.org/pdf/1710.03740.pdf) in which they describe a technique to train deep neural networks using half precision floating point numbers (FP16) to decrease the memory consumption of the models and to benefit from speed up effects due to that.
 
@@ -18,4 +21,3 @@ Creating a copy of the weights may seem to be contradictory since now we have in
 By using loss-scaling the authors avoid gradient values from becoming zero. The loss value that is computed in the forward pass is scaled (e.g. by simply multiplying it with a constant which can be quite large as long as it does not cause overflows) prior to starting back-propagation. Before FP32 weights are updated the gradients are unscaled to maintain the magnitude of updates the same as in FP32 training.
 
 In summary the authors have developed a very promising technique to train quite complex and popular models using only half precision floating point numbers. They have trained several models for language modeling, machine translation, image classification and speech recognition and in all of these cases they were able to match the accuracy of baseline FP32 models with the same hyper-parameters. The technique can be applied for very large models (e.g. with more than 100 million parameters) and the memory consumption was reduced by nearly 2x.
-

@@ -2,6 +2,9 @@
 layout: post
 title: Octave matrix multiplication performance for different BLAS implementations
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 Octave is a tool for doing linear algebra. When doing linear algebra one of the most fundamental operations is the [matrix multiplication](http://en.wikipedia.org/wiki/Matrix_multiplication). A straightforward algorithm to do a matrix operation requires O(n³) multiplications. In 196 [Strassen developed an algorithm](http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication) for multiplying big matrices (n > 100 to 1000) which requires O(n^2.807) multiplications.
 
@@ -29,4 +32,3 @@ The fastest implementation is OpenBLAS. It took 5.1 seconds to multiply a 5000x5
 Just for comparison we also added 100 times a 5000x5000 matrix. It took for all implementations about 13.5 seconds, i.e. one 5000x5000 matrix addition took approximately 0.135 seconds.
 
 ![performance of different blas implemenations](/assets/perfchartmult1.png)
-

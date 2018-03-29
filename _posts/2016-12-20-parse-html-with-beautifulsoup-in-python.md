@@ -3,6 +3,9 @@ layout: post
 title: Parse HTML with BeautifulSoup in Python
 tags: [python, programming]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 Parsing HTML data is a common task which is also very error prone if you try to write your own parser or if you try to parse HTML  it via regular expressions. Parsing HTML data in Python with the Python package "[Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)" is quite easy and can be done with just a few lines of code.
 

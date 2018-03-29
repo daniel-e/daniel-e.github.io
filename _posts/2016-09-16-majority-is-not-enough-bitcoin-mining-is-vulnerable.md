@@ -3,7 +3,9 @@ layout: post
 title: Majority is not Enough Bitcoin Mining is Vulnerable
 tags: paper
 ---
-
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 This is a short summary of the paper "**Majority is not Enough: Bitcoin Mining is Vulnerable**" by Eyal, Ittay, and Emin Gün Sirer which appeared in 2014 in *International Conference on Financial Cryptography and Data Security*.
 

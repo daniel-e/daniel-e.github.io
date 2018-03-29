@@ -3,6 +3,9 @@ layout: post
 title: Classify MNIST via Softmax Regression and TensorFlow with eager execution
 tags: [machine learning, python]
 ---
+<div style="font-size:small; color: gray; font-style: italic">
+  By <a href="https://twitter.com/dnl0x00">@dnl0x00</a>
+</div>
 
 Recently, Google announced the [eager execution for TensorFlow](https://research.googleblog.com/2017/10/eager-execution-imperative-define-by.html). Eager execution has some advantages when doing quick prototyping. The code is easier to debug because operations are executed immediately and you can build models via Python control flow (including `if` statements and `for` and `while` loops). You don't have to deal with those graphs and sessions anymore which makes the code more compact, readable and intuitive.
 
